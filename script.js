@@ -253,6 +253,9 @@ document.querySelectorAll('[data-aura-waves]').forEach((canvas) => {
   if (!ctx) return;
 
   const host = canvas.parentElement;
+  // data-aura-waves="lite": ana sayfa dışındaki sayfalar için daha soluk ve çok daha ucuz sürüm
+  // (daha az perde, çekirdek ışık yok, seyrek satırlar, az zerre, ~20 kare/sn).
+  const lite = canvas.dataset.auraWaves === 'lite';
   // Marka renkleri: mavi, camgöbeği, aura yeşili, limon yeşili.
   const palette = [[47, 135, 255], [49, 215, 255], [90, 236, 150], [149, 228, 31]];
   let width = 0;
@@ -307,8 +310,8 @@ document.querySelectorAll('[data-aura-waves]').forEach((canvas) => {
   const build = () => {
     const narrow = width < 760;
     const reach = Math.min(Math.max(width * 0.11, 70), 190);
-    const perSide = narrow ? 2 : 3;
-    step = narrow ? 9 : 7; // seyrek satırlar, her biri daha uzun ve yumuşak çizilir
+    const perSide = narrow || lite ? 2 : 3;
+    step = lite ? 11 : narrow ? 9 : 7; // seyrek satırlar, her biri daha uzun ve yumuşak çizilir
     curtains = [];
     [-1, 1].forEach((side) => {
       for (let i = 0; i < perSide; i += 1) {
@@ -322,11 +325,11 @@ document.querySelectorAll('[data-aura-waves]').forEach((canvas) => {
           b: (a + 2) % palette.length,
           phase: rand(0, Math.PI * 2),
           speed: rand(0.18, 0.32),
-          alpha: rand(0.34, 0.48),
+          alpha: lite ? rand(0.2, 0.28) : rand(0.34, 0.48),
         });
       }
     });
-    motes = Array.from({ length: Math.round(height / (narrow ? 30 : 20)) }, () => ({
+    motes = Array.from({ length: Math.round(height / (lite ? 48 : narrow ? 30 : 20)) }, () => ({
       side: Math.random() < 0.5 ? -1 : 1,
       x: rand(0, reach * 1.6),
       y: rand(0, height),
@@ -396,7 +399,8 @@ document.querySelectorAll('[data-aura-waves]').forEach((canvas) => {
         ctx.drawImage(sprites[c.a], x - w / 2, y - step * 1.5, w, step * 3);
         ctx.globalAlpha = light * (1 - mix) * 0.6;
         ctx.drawImage(sprites[c.b], x - w / 2, y - step * 1.5, w, step * 3);
-        // …ve ortasında parlak, ince çekirdek ışık.
+        // …ve ortasında parlak, ince çekirdek ışık (hafif sürümde yok).
+        if (lite) continue;
         const core = w * 0.22;
         ctx.globalAlpha = Math.min(light * 1.1, 1);
         ctx.drawImage(sprites[mix > 0.5 ? c.a : c.b], x - core / 2, y - step * 1.25, core, step * 2.5);
@@ -421,10 +425,12 @@ document.querySelectorAll('[data-aura-waves]').forEach((canvas) => {
   const clock = () => performance.now() + 4000;
   let started = false; // sayfanın giriş animasyonları rahatlayana kadar hareket başlamaz
   let onScreen = true;
-  // Perdeler yavaş hareket eder: saniyede ~30 kare yeterli; sayfanın geri kalanı tam hızda akar.
+  // Perdeler yavaş hareket eder: saniyede ~30 kare (hafif sürümde ~20) yeterli;
+  // sayfanın geri kalanı tam hızda akar.
+  const frameGap = lite ? 48 : 31;
   let lastDraw = 0;
   const loop = (now) => {
-    if (now - lastDraw >= 31) {
+    if (now - lastDraw >= frameGap) {
       lastDraw = now;
       draw(clock());
     }

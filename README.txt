@@ -27,6 +27,9 @@ V9'da (performans — ilk açılıştaki takılma):
 - Branş sayfalarında kutu efektleri kaldırıldı: galeri çerçevesinin dönen kenarı ve nabız
   hâlesi sabitlendi, program kutuları animasyonsuz (üzerine gelince efektleri duruyor).
 - Sayfa başlıklarında harf kesilmesi düzeltildi ("Yoga"daki g, "İletişim"deki İ noktası).
+- Aura ışıkları: ana sayfada tam sürüm; diğer sayfalarda hafif sürüm
+  (canvas'ta data-aura-waves="lite"): daha soluk, daha az perde ve zerre, ~20 kare/sn —
+  tam sürümün iş yükünün yaklaşık %23'ü.
 - Tüm sayfalarda kayma hareketleri kaldırıldı: öğeler aşağıdan/yukarıdan/yandan kayarak
   gelmez, sadece yumuşakça belirir (menü, logo, yazılar, kutular, kartlar, sayfa geçişi).
   Hakkımızda rozetinin süzülmesi ve ana sayfa arka plan görselinin kayması da durduruldu.
