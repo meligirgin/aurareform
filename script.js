@@ -86,6 +86,17 @@ if (!reducedMotion) {
   });
 }
 
+// Fotoğraflar: sağ tık menüsü ("Resmi farklı kaydet") ve sürükleyip bırakarak kaydetme kapalı.
+// Not: tarayıcıda gösterilen bir görselin kopyalanmasını tamamen engellemek mümkün değildir
+// (ekran görüntüsü, geliştirici araçları); bu sadece sıradan kopyalama yollarını kapatır.
+const photoSelector = 'img, .bg-frame, .bg-thumb, .about-frame, .sport-card';
+document.addEventListener('contextmenu', (event) => {
+  if (event.target.closest(photoSelector)) event.preventDefault();
+});
+document.addEventListener('dragstart', (event) => {
+  if (event.target.closest('img')) event.preventDefault();
+});
+
 // Sayaçlar: görününce 0'dan hedef değere yumuşak artış.
 const countUp = (el) => {
   const target = Number(el.dataset.count);

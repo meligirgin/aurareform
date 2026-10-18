@@ -1,3 +1,17 @@
+AURA REFORM — V10
+=================
+
+V10'da:
+- Ana sayfa branş kutuları: büyük harfli başlıklar (PILATES / YOGA / FITNESS / DANCE),
+  aynı alt yazılar, sağda ışık halkalı görsel, her branşın kendi rengi.
+  Görseller: assets/cards/card-<branş>.jpg (tasarım ekran görüntüsünden kırpıldı —
+  orijinal yüksek çözünürlüklü görseller gelirse aynı adla üzerine kaydedin).
+- Ana sayfa arka planı: belirgin dünya + atmosfer halkası; yandaki ışıklar yerine dünyanın
+  kuzey kenarından çok yavaş yükselen kuzey ışığı sütunları (canvas yok; yalnızca
+  saydamlık/ölçek animasyonu — işlem yükü çok düşük).
+- Branş galerileri: imleçle eğilme efekti ve fotoğraf sayısı kaldırıldı.
+- Fotoğraflarda sağ tık menüsü ve sürükleyerek kaydetme kapalı.
+
 AURA REFORM — V9
 ================
 
