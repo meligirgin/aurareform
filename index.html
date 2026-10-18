@@ -25,18 +25,34 @@
         <source src="assets/media/hero-video.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
-      <!-- Dünya + kuzey ışığı patlamaları: yalnızca saydamlık/ölçek animasyonu (canvas yok, çok hafif) -->
-      <div class="globe-stage">
-        <div class="globe-aurora">
-          <span style="--a:-62deg; --c:49,215,255;  --t:21s; --dl:-3s"></span>
-          <span style="--a:-40deg; --c:90,236,150;  --t:17s; --dl:-11s"></span>
-          <span style="--a:-19deg; --c:138,125,255; --t:23s; --dl:-6s"></span>
-          <span style="--a:0deg;   --c:90,236,150;  --t:19s; --dl:-15s"></span>
-          <span style="--a:20deg;  --c:49,215,255;  --t:22s; --dl:-1s"></span>
-          <span style="--a:41deg;  --c:149,228,31;  --t:18s; --dl:-9s"></span>
-          <span style="--a:63deg;  --c:138,125,255; --t:20s; --dl:-13s"></span>
+      <!-- Karanlık küre + kenarından sayfa kenarına kadar yayılan aura dalgaları ve zerreler
+           (yalnızca CSS saydamlık/dönme/kayma; her karede JS yok) -->
+      <div class="planet">
+        <div class="rim-lights" data-rim-lights>
+          <span class="rim-flare"></span>
+          <span class="rim-flare"></span>
+          <span class="rim-flare"></span>
+          <span class="rim-flare"></span>
+          <span class="rim-flare"></span>
+          <span class="rim-mote"></span>
+          <span class="rim-mote"></span>
+          <span class="rim-mote"></span>
+          <span class="rim-mote"></span>
+          <span class="rim-mote"></span>
+          <span class="rim-mote"></span>
+          <span class="rim-mote"></span>
+          <span class="rim-mote"></span>
+          <span class="rim-mote"></span>
+          <span class="rim-mote"></span>
+          <span class="rim-mote"></span>
+          <span class="rim-mote"></span>
+          <span class="rim-mote"></span>
+          <span class="rim-mote"></span>
+          <span class="rim-mote"></span>
+          <span class="rim-mote"></span>
+          <span class="rim-mote"></span>
+          <span class="rim-mote"></span>
         </div>
-        <div class="globe"><img src="assets/earthLogo.png" alt="" draggable="false"></div>
       </div>
       <div class="hero-spotlight"></div>
     </div>
@@ -102,10 +118,10 @@
       </section>
 
       <div class="discipline-dock" aria-label="Branş seçimi">
-        <a class="discipline-link sport-card" href="pilates.html" data-spotlight data-anim="rise" style="--d:0.15s; --tone:58,160,255"><span class="sport-card-copy"><span class="discipline-title">PILATES</span><span class="discipline-sub">Kontrol · Postür · Denge</span></span><img class="sport-card-img" src="assets/cards/card-pilates.jpg" alt="" draggable="false"></a>
-        <a class="discipline-link sport-card" href="yoga.html" data-spotlight data-anim="rise" style="--d:0.25s; --tone:168,112,255"><span class="sport-card-copy"><span class="discipline-title">YOGA</span><span class="discipline-sub">Nefes · Akış · Odak</span></span><img class="sport-card-img" src="assets/cards/card-yoga.jpg" alt="" draggable="false"></a>
-        <a class="discipline-link sport-card" href="fitness.html" data-spotlight data-anim="rise" style="--d:0.35s; --tone:242,181,68"><span class="sport-card-copy"><span class="discipline-title">FITNESS</span><span class="discipline-sub">Güç · Performans · Form</span></span><img class="sport-card-img" src="assets/cards/card-fitness.jpg" alt="" draggable="false"></a>
-        <a class="discipline-link sport-card" href="dance.html" data-spotlight data-anim="rise" style="--d:0.45s; --tone:255,77,77"><span class="sport-card-copy"><span class="discipline-title">DANCE</span><span class="discipline-sub">Ritim · İfade · Enerji</span></span><img class="sport-card-img" src="assets/cards/card-dance.jpg" alt="" draggable="false"></a>
+        <a class="discipline-link sport-card" href="pilates.html" data-spotlight data-anim="rise" style="--d:0.15s; --tone:58,160,255"><span class="sport-card-copy"><span class="discipline-title">PILATES</span><span class="discipline-sub">Kontrol · Postür · Denge</span></span><span class="sport-card-art" aria-hidden="true"><img class="sport-card-img" src="assets/cards/card-pilates.jpg" alt="" draggable="false"></span></a>
+        <a class="discipline-link sport-card" href="yoga.html" data-spotlight data-anim="rise" style="--d:0.25s; --tone:168,112,255"><span class="sport-card-copy"><span class="discipline-title">YOGA</span><span class="discipline-sub">Nefes · Akış · Odak</span></span><span class="sport-card-art" aria-hidden="true"><img class="sport-card-img" src="assets/cards/card-yoga.jpg" alt="" draggable="false"></span></a>
+        <a class="discipline-link sport-card" href="fitness.html" data-spotlight data-anim="rise" style="--d:0.35s; --tone:242,181,68"><span class="sport-card-copy"><span class="discipline-title">FITNESS</span><span class="discipline-sub">Güç · Performans · Form</span></span><span class="sport-card-art" aria-hidden="true"><img class="sport-card-img" src="assets/cards/card-fitness.jpg" alt="" draggable="false"></span></a>
+        <a class="discipline-link sport-card" href="dance.html" data-spotlight data-anim="rise" style="--d:0.45s; --tone:255,77,77"><span class="sport-card-copy"><span class="discipline-title">DANCE</span><span class="discipline-sub">Ritim · İfade · Enerji</span></span><span class="sport-card-art" aria-hidden="true"><img class="sport-card-img" src="assets/cards/card-dance.jpg" alt="" draggable="false"></span></a>
       </div>
     </div>
   </main>

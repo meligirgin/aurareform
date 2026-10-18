@@ -21,7 +21,28 @@
   <main class="branch-screen" data-spotlight>
     <div class="branch-bg" aria-hidden="true">
       <div class="branch-glow"></div>
-      <canvas class="aura-waves" data-aura-waves="lite"></canvas>
+      <!-- Ortadan iki yana yavaşça kayan dikey aura dalgaları + süzülen küçük ışık topları
+           (yalnızca CSS kayma/saydamlık; canvas ve her karede çalışan JS yok) -->
+      <div class="page-waves">
+        <div class="wave-side wave-left"><span></span><span></span><span></span></div>
+        <div class="wave-side wave-right"><span></span><span></span><span></span></div>
+        <div class="page-motes">
+          <span style="--x:4%;  --y:88%; --dx:-2vw; --t:22s; --dl:-3s"></span>
+          <span style="--x:9%;  --y:70%; --dx:-3vw; --t:26s; --dl:-14s"></span>
+          <span style="--x:14%; --y:95%; --dx:-4vw; --t:19s; --dl:-8s"></span>
+          <span style="--x:6%;  --y:55%; --dx:-2vw; --t:24s; --dl:-19s"></span>
+          <span style="--x:12%; --y:80%; --dx:-3vw; --t:21s; --dl:-1s"></span>
+          <span style="--x:17%; --y:62%; --dx:-5vw; --t:25s; --dl:-11s"></span>
+          <span style="--x:3%;  --y:98%; --dx:-1vw; --t:20s; --dl:-16s"></span>
+          <span style="--x:96%; --y:86%; --dx:2vw;  --t:23s; --dl:-6s"></span>
+          <span style="--x:91%; --y:68%; --dx:3vw;  --t:20s; --dl:-17s"></span>
+          <span style="--x:86%; --y:96%; --dx:4vw;  --t:26s; --dl:-2s"></span>
+          <span style="--x:94%; --y:58%; --dx:2vw;  --t:22s; --dl:-12s"></span>
+          <span style="--x:88%; --y:78%; --dx:3vw;  --t:19s; --dl:-9s"></span>
+          <span style="--x:83%; --y:64%; --dx:5vw;  --t:24s; --dl:-21s"></span>
+          <span style="--x:97%; --y:99%; --dx:1vw;  --t:21s; --dl:-5s"></span>
+        </div>
+      </div>
       <div class="hero-spotlight"></div>
     </div>
 

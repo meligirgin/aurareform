@@ -6,9 +6,12 @@ V10'da:
   aynı alt yazılar, sağda ışık halkalı görsel, her branşın kendi rengi.
   Görseller: assets/cards/card-<branş>.jpg (tasarım ekran görüntüsünden kırpıldı —
   orijinal yüksek çözünürlüklü görseller gelirse aynı adla üzerine kaydedin).
-- Ana sayfa arka planı: belirgin dünya + atmosfer halkası; yandaki ışıklar yerine dünyanın
-  kuzey kenarından çok yavaş yükselen kuzey ışığı sütunları (canvas yok; yalnızca
-  saydamlık/ölçek animasyonu — işlem yükü çok düşük).
+- Ana sayfa arka planı: yazıların arkasında üst kenarı ışıldayan büyük karanlık küre
+  (hareketsiz — yazılar net okunur); kürenin kenarının rastgele bir bölümünden doğup sayfa
+  kenarına kadar dışa doğru genişleyen yumuşak aura dalgaları ve dışa saçılan zerreler
+  (her tur sonunda yeni rastgele açı).
+  Hareketi GPU yapar — canvas ve her karede çalışan JS yok.
+- Branş kutularında görseldeki halkanın etrafında dönen iki ışık parıltısı.
 - Branş galerileri: imleçle eğilme efekti ve fotoğraf sayısı kaldırıldı.
 - Fotoğraflarda sağ tık menüsü ve sürükleyerek kaydetme kapalı.
 
@@ -42,7 +45,9 @@ V9'da (performans — ilk açılıştaki takılma):
   hâlesi sabitlendi, program kutuları animasyonsuz (üzerine gelince efektleri duruyor).
 - Sayfa başlıklarında harf kesilmesi düzeltildi ("Yoga"daki g, "İletişim"deki İ noktası).
 - Aura ışıkları: ana sayfada tam sürüm; diğer sayfalarda hafif sürüm
-  (canvas'ta data-aura-waves="lite"): daha soluk, daha az perde ve zerre, ~20 kare/sn —
+  (V10: diğer sayfalarda canvas yerine ortadan iki yana yavaşça kayan dikey aura dalgaları
+  ve süzülen küçük ışık topları — yalnızca CSS; aşağıdaki V9 notu eski hâli anlatır.)
+  (V9: canvas'ta data-aura-waves="lite"): daha soluk, daha az perde ve zerre, ~20 kare/sn —
   tam sürümün iş yükünün yaklaşık %23'ü.
 - Tüm sayfalarda kayma hareketleri kaldırıldı: öğeler aşağıdan/yukarıdan/yandan kayarak
   gelmez, sadece yumuşakça belirir (menü, logo, yazılar, kutular, kartlar, sayfa geçişi).
